@@ -1,13 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using System.Timers;
 using Timer = System.Timers.Timer;
-using Samples.HelloBlazorServer.Data;
-using Samples.HelloBlazorServer.Models;
-using Samples.HelloBlazorServer.Shared;
+using TimerTestApp.Data;
+using TimerTestApp.Models;
+using TimerTestApp.Shared;
 using Microsoft.Extensions.DependencyInjection;
 using ActualLab.Fusion;
 
-namespace Samples.HelloBlazorServer.Services;
+namespace TimerTestApp.Services;
 
 public class TimerService : ITimerService, IDisposable
 {

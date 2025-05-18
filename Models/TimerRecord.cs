@@ -1,4 +1,4 @@
-namespace Samples.HelloBlazorServer.Models;
+namespace TimerTestApp.Models;
 
 public class TimerRecord
 {

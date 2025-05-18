@@ -4,15 +4,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Samples.HelloBlazorServer.Data;
+using TimerTestApp.Data;
 
 #nullable disable
 
 namespace Samples.HelloBlazorServer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250517212151_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20250518073133_InitialMigrations")]
+    partial class InitialMigrations
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,7 +20,7 @@ namespace Samples.HelloBlazorServer.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.5");
 
-            modelBuilder.Entity("Samples.HelloBlazorServer.Models.TimerRecord", b =>
+            modelBuilder.Entity("TimerTestApp.Models.TimerRecord", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

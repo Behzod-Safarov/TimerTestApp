@@ -61,23 +61,7 @@
     <PackageVersion Include="System.Drawing.Common" Version="7.0.0" />
     <PackageVersion Include="UAParser" Version="3.1.47" />
   </ItemGroup>
-  <!-- Aspire - used only in TodoApp sample -->
-  <ItemGroup>
-    <PackageVersion Include="Aspire.Hosting.AppHost" Version="9.1.0" />
-    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.3.0" />
-    <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="9.1.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <!-- OpenTelemetry - used only in TodoApp sample -->
-    <PackageVersion Include="OpenTelemetry.Api" Version="$(OpenTelemetryVersion)" />
-    <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="$(OpenTelemetryVersion)" />
-    <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="$(OpenTelemetryVersion)" />
-    <PackageVersion Include="OpenTelemetry.Instrumentation.AspNetCore" Version="$(OpenTelemetryVersion)" />
-    <PackageVersion Include="OpenTelemetry.Instrumentation.Http" Version="$(OpenTelemetryVersion)" />
-    <PackageVersion Include="OpenTelemetry.Instrumentation.Runtime" Version="$(OpenTelemetryVersion)" />
-    <PackageVersion Include="OpenTelemetry.Exporter.Console" Version="$(OpenTelemetryVersion)" />
-    <PackageVersion Include="Npgsql.OpenTelemetry" Version="9.0.3" />
-  </ItemGroup>
+
   <!-- RpcBenchmark-specific packages -->
   <ItemGroup>
     <PackageVersion Include="Grpc.AspNetCore" Version="2.70.0" />

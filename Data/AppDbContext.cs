@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 
-using Samples.HelloBlazorServer.Models;
+using TimerTestApp.Models;
 
 
-namespace Samples.HelloBlazorServer.Data;
+namespace TimerTestApp.Data;
 
 public class AppDbContext : DbContext
 {

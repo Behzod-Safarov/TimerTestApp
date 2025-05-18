@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Samples.HelloBlazorServer.Data;
+using TimerTestApp.Data;
 
 #nullable disable
 
@@ -17,7 +17,7 @@ namespace Samples.HelloBlazorServer.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.5");
 
-            modelBuilder.Entity("Samples.HelloBlazorServer.Models.TimerRecord", b =>
+            modelBuilder.Entity("TimerTestApp.Models.TimerRecord", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

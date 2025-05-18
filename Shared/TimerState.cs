@@ -1,4 +1,4 @@
-namespace Samples.HelloBlazorServer.Shared;
+namespace TimerTestApp.Shared;
 
 
 public record TimerState(

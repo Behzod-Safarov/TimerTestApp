@@ -1,7 +1,7 @@
-using Samples.HelloBlazorServer.Models;
-using Samples.HelloBlazorServer.Shared;
+using TimerTestApp.Models;
+using TimerTestApp.Shared;
 
-namespace Samples.HelloBlazorServer.Services;
+namespace TimerTestApp.Services;
 
 public interface ITimerService : IComputeService
 {

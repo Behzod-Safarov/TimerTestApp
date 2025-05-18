@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Hosting.StaticWebAssets;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration.Memory;
 using Microsoft.Extensions.Hosting;
-using Samples.HelloBlazorServer.Components.Pages;
-using Samples.HelloBlazorServer.Data;
-using Samples.HelloBlazorServer.Services;
+using TimerTestApp.Components.Pages;
+using TimerTestApp.Data;
+using TimerTestApp.Services;
 
 var builder = WebApplication.CreateBuilder();
 var env = builder.Environment;
