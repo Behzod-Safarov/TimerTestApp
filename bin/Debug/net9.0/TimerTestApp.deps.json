@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v9.0": {
       "TimerTestApp/1.0.0": {
         "dependencies": {
+          "ActualLab.Fusion": "10.1.3",
           "ActualLab.Fusion.Blazor": "10.1.3",
           "ActualLab.Fusion.Server": "10.1.3",
           "ActualLab.Generators": "10.1.3",

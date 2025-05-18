@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ActualLab.Fusion" />
     <PackageReference Include="ActualLab.Fusion.Blazor" />
     <PackageReference Include="ActualLab.Fusion.Server" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
