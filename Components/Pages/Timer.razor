@@ -1,0 +1,238 @@
+@page "/"
+
+@using Samples.HelloBlazorServer.Shared
+@using Samples.HelloBlazorServer.Services
+@using ActualLab.Fusion.Extensions
+@using ActualLab.Fusion.UI
+@inherits ComputedStateComponent<TimerState>
+@inject ITimerService TimerService
+@inject UIActionTracker UIActionTracker
+@inject NavigationManager Nav
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+<div class="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 flex items-center justify-center p-6">
+    <div class="bg-white rounded-3xl shadow-2xl p-12 w-full max-w-2xl">
+        <h1 class="text-5xl font-bold text-center text-gray-800 mb-8 font-poppins">Taymer Ilovasi</h1>
+
+        @if (State.Error != null)
+        {
+            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded" role="alert">
+                <p class="font-semibold">Yangilash Xatosi</p>
+                <p>@State.Error.Message</p>
+            </div>
+        }
+
+        <div class="space-y-6">
+            <!-- Taymer Boshqaruvlari -->
+            <div class="flex items-center space-x-4">
+                <input type="number" @bind="duration" min="1" step="1" 
+                       class="w-24 p-2 border rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none text-gray-700 font-poppins"
+                       placeholder="Davomiylik" oninput="this.value = Math.abs(this.value)" />
+                <select @bind="timeUnit" class="p-2 border rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none text-gray-700 font-poppins">
+                    <option value="Seconds">Soniya</option>
+                    <option value="Minutes">Daqiqa</option>
+                    <option value="Hours">Soat</option>
+                </select>
+                @if (State.Value.StartTime == default || State.Value.IsCompleted)
+                {
+                    <button @onclick="StartTimer" disabled="@(duration <= 0)"
+                            class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:bg-gray-400 transition duration-300 font-poppins">
+                        Boshlash
+                    </button>
+                }
+                @if (State.Value.IsRunning || (State.Value.StartTime != default && !State.Value.IsCompleted))
+                {
+                    <button @onclick="PauseTimer" disabled="@(State.Value.StartTime == default || State.Value.IsCompleted)"
+                            class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 disabled:bg-gray-400 transition duration-300 font-poppins">
+                        @(State.Value.IsRunning ? "To'xtatish" : "Davom etish")
+                    </button>
+                }
+                <button @onclick="ResetTimer" disabled="@(State.Value.StartTime == default)"
+                        class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:bg-gray-400 transition duration-300 font-poppins">
+                    Qayta tiklash
+                </button>
+            </div>
+
+            <!-- Taymer Displeyi -->
+            <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                <p class="text-lg font-medium text-gray-700 font-poppins">
+                    Holati: 
+                    <span class="text-indigo-600">
+                        @(State.Value.IsRunning ? "Ishlamoqda" : State.Value.IsCompleted ? "Tugallandi" : State.Value.StartTime == default ? "To'xtatilgan" : "Pauza qilingan")
+                    </span>
+                </p>
+                <p class="text-lg font-medium text-gray-700 font-poppins">
+                    Qolgan Vaqt: 
+                    <span class="text-indigo-600">@($"{State.Value.RemainingSeconds:F1}") soniya</span>
+                </p>
+                <p class="text-sm text-gray-600 font-poppins">
+                    Boshlangan: @(State.Value.StartTime == default ? "Boshlanmagan" : State.Value.StartTime.ToString("g"))
+                </p>
+                <p class="text-sm text-gray-600 font-poppins">
+                    Tugagan: @(State.Value.EndTime == default ? "Yo'q" : State.Value.EndTime.ToString("g"))
+                </p>
+
+                <!-- Dumaloq Jarayon Paneli -->
+                @{
+                    var progressColor = ProgressWidth switch {
+                        <= 25 => "from-red-600 via-pink-500 to-red-700",
+                        <= 50 => "from-yellow-500 via-orange-500 to-yellow-600",
+                        <= 75 => "from-blue-500 via-indigo-500 to-blue-600",
+                        _ => "from-green-500 via-teal-500 to-green-600"
+                    };
+                }
+
+                <div class="mt-4 flex justify-center relative group">
+                    <div class="relative w-36 h-36">
+                        <!-- Orqa Fon Doirasi -->
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 shadow-inner"></div>
+                        <!-- Jarayon Doirasi -->
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-r @progressColor transition-all duration-300 ease-out @(State.Value.IsCompleted ? "animate-pulse" : "")"
+                             style="background: conic-gradient(from 0deg, transparent 0% @(100 - ProgressWidth)%, currentColor @(100 - ProgressWidth)% 100%); filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));">
+                            <!-- To'lqin Effekti -->
+                            <div class="absolute inset-1 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-40 animate-wave rounded-full"></div>
+                        </div>
+                        <!-- Markaziy Doira (Oq Fon) -->
+                        <div class="absolute inset-4 bg-gradient-to-br from-white to-gray-50 rounded-full flex items-center justify-center shadow-inner">
+                            <span class="text-xl font-bold text-gray-800 font-poppins animate-scale">
+                                @($"{ProgressWidth:F0}%")
+                            </span>
+                        </div>
+                    </div>
+                    <!-- Sichqoncha bilan Ko'rsatiladigan Maslahat -->
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-14 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <span class="bg-gray-800 text-white text-xs rounded-lg py-1 px-3 font-poppins shadow-lg">Jarayon: @($"{ProgressWidth:F1}%")</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Oldingi Yugurishlar -->
+            <h3 class="text-xl font-semibold text-gray-800 font-poppins">Oldingi Yugurishlar</h3>
+            <div class="space-y-4 max-h-48 overflow-y-auto pr-2">
+                @foreach (var record in timerRecords)
+                {
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 hover:bg-gray-100 transition duration-200">
+                        <p class="text-sm text-gray-600 font-poppins">Boshlangan: @record.StartTime.ToString("g")</p>
+                        <p class="text-sm text-gray-600 font-poppins">Tugagan: @record.EndTime.ToString("g")</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* To'lqin animatsiyasi jarayon paneli uchun */
+    @@keyframes wave {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    .animate-wave {
+        animation: wave 2.5s infinite linear;
+    }
+
+    /* Foiz matni uchun masshtab animatsiyasi */
+    @@keyframes scale {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+    .animate-scale {
+        animation: scale 2s infinite ease-in-out;
+    }
+
+    /* Shrift oilasi */
+    .font-poppins {
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
+
+@code {
+    // O'zgaruvchilar
+    private int duration = 15; // Sukut bo'yicha 15
+    private string timeUnit = "Seconds"; // Sukut bo'yicha birlik
+    private List<TimerRecord> timerRecords = new();
+
+    // Jarayon kengligi
+    private double ProgressWidth
+    {
+        get
+        {
+            if (State.Value.TotalDuration <= 0)
+                return 0;
+            var elapsed = State.Value.TotalDuration - State.Value.RemainingSeconds;
+            return Math.Min(100, Math.Max(0, 100 * elapsed / State.Value.TotalDuration));
+        }
+    }
+
+    // Komponent ishga tushganda
+    protected override async Task OnInitializedAsync()
+    {
+        await UpdateTimerRecords();
+        await base.OnInitializedAsync();
+    }
+
+    // Holat sozlamalari
+    protected override ComputedState<TimerState>.Options GetStateOptions()
+        => new() { UpdateDelayer = new UpdateDelayer(UIActionTracker, 0.1) }; // Tezroq yangilanishlar
+
+    // Holatni hisoblash
+    protected override async Task<TimerState> ComputeState(CancellationToken cancellationToken)
+    {
+        var state = await TimerService.GetState(cancellationToken);
+        if (state.IsCompleted && !timerRecords.Any(r => r.EndTime == state.EndTime))
+        {
+            await UpdateTimerRecords();
+        }
+        return state;
+    }
+
+    // Taymerni boshlash
+    private async Task StartTimer()
+    {
+        if (duration > 0)
+        {
+            int durationInSeconds = timeUnit switch
+            {
+                "Minutes" => duration * 60,
+                "Hours" => duration * 3600,
+                _ => duration // Soniya
+            };
+            await TimerService.Start(durationInSeconds);
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+
+    // Taymerni to'xtatish yoki davom ettirish
+    private async Task PauseTimer()
+    {
+        if (State.Value.IsRunning)
+        {
+            await TimerService.Pause();
+        }
+        else if (State.Value.StartTime != default && !State.Value.IsCompleted)
+        {
+            // Davom ettirish: qolgan vaqtni ishlatish
+            await TimerService.Start((int)Math.Ceiling(State.Value.RemainingSeconds));
+        }
+        await InvokeAsync(StateHasChanged);
+    }
+
+    // Taymerni qayta tiklash
+    private async Task ResetTimer()
+    {
+        await TimerService.Reset();
+        duration = 15; // Sukut bo'yicha qayta tiklash
+        timeUnit = "Seconds"; // Sukut bo'yicha birlikni qayta tiklash
+        await UpdateTimerRecords();
+        await InvokeAsync(StateHasChanged);
+    }
+
+    // Oldingi yugurishlarni yangilash
+    private async Task UpdateTimerRecords()
+    {
+        timerRecords = (await TimerService.GetRecords(CancellationToken.None)).ToList();
+        await InvokeAsync(StateHasChanged);
+    }
+}

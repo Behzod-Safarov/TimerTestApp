@@ -1,0 +1,50 @@
+    .timer-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.timer-controls input {
+    padding: 5px;
+    width: 100px;
+}
+
+.timer-controls button {
+    padding: 5px 15px;
+}
+
+.timer-display {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #4CAF50;
+    transition: width 0.1s linear;
+}
+
+.history {
+    margin-top: 20px;
+}
+
+.history-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}

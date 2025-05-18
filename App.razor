@@ -1,0 +1,31 @@
+﻿@implements IDisposable
+
+<Router AppAssembly="@typeof(App).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+    </Found>
+    <NotFound>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <p>Sorry, there's nothing at this address.</p>
+        </LayoutView>
+    </NotFound>
+</Router>
+
+@code {
+    [Inject] private IServiceProvider Services { get; set; } = null!;
+    [Inject] private ISessionResolver SessionResolver { get; set; } = null!;
+    [Inject] private BlazorCircuitContext BlazorCircuitContext { get; set; } = null!;
+
+    [Parameter] public string SessionId { get; set; } = "";
+    [Parameter] public string RenderModeKey { get; set; } = "";
+
+    protected override void OnInitialized()
+    {
+        SessionResolver.Session = new Session(SessionId);
+        if (BlazorCircuitContext.IsInteractive)
+            BlazorCircuitContext.Initialize(this.GetDispatcher(), RenderModeDef.GetOrDefault(RenderModeKey));
+    }
+
+    public void Dispose()
+        => BlazorCircuitContext.Dispose();
+}
