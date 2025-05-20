@@ -1,0 +1,8 @@
+C:\Users\hp\scr\Proba\TimerTestApp\obj\Debug\net8.0\TimerTestApp.csproj.AssemblyReference.cache
+C:\Users\hp\scr\Proba\TimerTestApp\obj\Debug\net8.0\TimerTestApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\scr\Proba\TimerTestApp\obj\Debug\net8.0\TimerTestApp.AssemblyInfoInputs.cache
+C:\Users\hp\scr\Proba\TimerTestApp\obj\Debug\net8.0\TimerTestApp.AssemblyInfo.cs
+C:\Users\hp\scr\Proba\TimerTestApp\obj\Debug\net8.0\TimerTestApp.csproj.CoreCompileInputs.cache
+C:\Users\hp\scr\Proba\TimerTestApp\obj\Debug\net8.0\TimerTestApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\hp\scr\Proba\TimerTestApp\obj\Debug\net8.0\TimerTestApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\hp\scr\Proba\TimerTestApp\obj\Debug\net8.0\TimerTestApp.sourcelink.json
