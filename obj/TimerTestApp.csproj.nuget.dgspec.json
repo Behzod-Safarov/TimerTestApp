@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hp\\scr\\Proba\\TimerTestApp\\TimerTestApp.csproj": {}
+    "C:\\Users\\user\\Desktop\\Develeoper Tools\\Shaxsiy\\TimerTestApp\\TimerTestApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hp\\scr\\Proba\\TimerTestApp\\TimerTestApp.csproj": {
+    "C:\\Users\\user\\Desktop\\Develeoper Tools\\Shaxsiy\\TimerTestApp\\TimerTestApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\scr\\Proba\\TimerTestApp\\TimerTestApp.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\Develeoper Tools\\Shaxsiy\\TimerTestApp\\TimerTestApp.csproj",
         "projectName": "TimerTestApp",
-        "projectPath": "C:\\Users\\hp\\scr\\Proba\\TimerTestApp\\TimerTestApp.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\scr\\Proba\\TimerTestApp\\obj\\",
+        "projectPath": "C:\\Users\\user\\Desktop\\Develeoper Tools\\Shaxsiy\\TimerTestApp\\TimerTestApp.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\Develeoper Tools\\Shaxsiy\\TimerTestApp\\obj\\",
         "projectStyle": "PackageReference",
-        "centralPackageVersionsManagementEnabled": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -36,12 +35,6 @@
           }
         },
         "warningProperties": {
-          "noWarn": [
-            "NU1901",
-            "NU1902",
-            "NU1903",
-            "NU1904"
-          ],
           "warnAsError": [
             "NU1605"
           ]
@@ -51,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -59,100 +52,32 @@
           "dependencies": {
             "ActualLab.Fusion": {
               "target": "Package",
-              "version": "[10.1.3, )",
-              "versionCentrallyManaged": true
+              "version": "[10.1.3, )"
             },
             "ActualLab.Fusion.Blazor": {
               "target": "Package",
-              "version": "[10.1.3, )",
-              "versionCentrallyManaged": true
+              "version": "[10.1.3, )"
             },
             "ActualLab.Fusion.Server": {
               "target": "Package",
-              "version": "[10.1.3, )",
-              "versionCentrallyManaged": true
+              "version": "[10.1.3, )"
             },
             "ActualLab.Generators": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[10.1.3, )",
-              "versionCentrallyManaged": true
+              "version": "[10.1.3, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.5, )",
-              "versionCentrallyManaged": true
+              "version": "[9.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[9.0.3, )",
-              "versionCentrallyManaged": true
+              "version": "[9.0.5, )"
             }
-          },
-          "centralPackageVersions": {
-            "ActualLab.Fusion": "10.1.3",
-            "ActualLab.Fusion.Blazor": "10.1.3",
-            "ActualLab.Fusion.Blazor.Authentication": "10.1.3",
-            "ActualLab.Fusion.EntityFramework": "10.1.3",
-            "ActualLab.Fusion.EntityFramework.Npgsql": "10.1.3",
-            "ActualLab.Fusion.EntityFramework.Redis": "10.1.3",
-            "ActualLab.Fusion.Ext.Contracts": "10.1.3",
-            "ActualLab.Fusion.Ext.Services": "10.1.3",
-            "ActualLab.Fusion.Server": "10.1.3",
-            "ActualLab.Generators": "10.1.3",
-            "ActualLab.RestEase": "10.1.3",
-            "ActualLab.Rpc.Server": "10.1.3",
-            "Aspire.Hosting.AppHost": "9.1.0",
-            "AspNet.Security.OAuth.GitHub": "9.2.0",
-            "Blazored.LocalStorage": "4.5.0",
-            "Blazorise": "1.7.5",
-            "Blazorise.Bootstrap5": "1.7.5",
-            "Blazorise.DataGrid": "1.7.5",
-            "Blazorise.Icons.FontAwesome": "1.7.5",
-            "Blazorise.Sidebar": "1.7.5",
-            "Grpc.AspNetCore": "2.70.0",
-            "Grpc.AspNetCore.Web": "2.70.0",
-            "MagicOnion": "7.0.2",
-            "MemoryPack.Generator": "1.21.4",
-            "Microsoft.AspNetCore.Authentication.Cookies": "2.3.0",
-            "Microsoft.AspNetCore.Authentication.Google": "[9.0.3,)",
-            "Microsoft.AspNetCore.Authentication.MicrosoftAccount": "[9.0.3,)",
-            "Microsoft.AspNetCore.Components.WebAssembly": "[9.0.3,)",
-            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": "[9.0.3,)",
-            "Microsoft.AspNetCore.Components.WebAssembly.Server": "[9.0.3,)",
-            "Microsoft.AspNetCore.DataProtection.EntityFrameworkCore": "[9.0.3,)",
-            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "[9.0.3,)",
-            "Microsoft.AspNetCore.SignalR.Client": "[9.0.3,)",
-            "Microsoft.EntityFrameworkCore.Abstractions": "[9.0.3,)",
-            "Microsoft.EntityFrameworkCore.Design": "9.0.5",
-            "Microsoft.EntityFrameworkCore.Sqlite": "[9.0.3,)",
-            "Microsoft.EntityFrameworkCore.SqlServer": "[9.0.3,)",
-            "Microsoft.Extensions.Http.Resilience": "9.3.0",
-            "Microsoft.Extensions.Logging.Debug": "[9.0.3,)",
-            "Microsoft.Extensions.ServiceDiscovery": "9.1.0",
-            "Newtonsoft.Json": "12.0.1",
-            "Npgsql.EntityFrameworkCore.PostgreSQL": "[9.0.3,)",
-            "Npgsql.OpenTelemetry": "9.0.3",
-            "Ookii.CommandLine": "5.0.0",
-            "OpenTelemetry.Api": "[1.11.1,)",
-            "OpenTelemetry.Exporter.Console": "[1.11.1,)",
-            "OpenTelemetry.Exporter.OpenTelemetryProtocol": "[1.11.1,)",
-            "OpenTelemetry.Extensions.Hosting": "[1.11.1,)",
-            "OpenTelemetry.Instrumentation.AspNetCore": "[1.11.1,)",
-            "OpenTelemetry.Instrumentation.Http": "[1.11.1,)",
-            "OpenTelemetry.Instrumentation.Runtime": "[1.11.1,)",
-            "Pastel": "6.0.1",
-            "PolySharp": "1.14.1",
-            "RestEase.SourceGenerator": "1.6.4",
-            "SixLabors.ImageSharp": "3.1.7",
-            "SixLabors.ImageSharp.Drawing": "2.1.5",
-            "StreamJsonRpc": "2.21.69",
-            "System.CommandLine": "2.0.0-beta4.22272.1",
-            "System.CommandLine.DragonFruit": "0.4.0-alpha.22272.1",
-            "System.Drawing.Common": "7.0.0",
-            "UAParser": "3.1.47"
           },
           "imports": [
             "net461",
@@ -173,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

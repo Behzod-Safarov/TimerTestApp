@@ -1,3 +1,4 @@
+using ActualLab.Fusion;
 using TimerTestApp.Models;
 using TimerTestApp.Shared;
 

@@ -4,6 +4,7 @@ using Timer = System.Timers.Timer;
 using TimerTestApp.Data;
 using TimerTestApp.Models;
 using TimerTestApp.Shared;
+using ActualLab.Fusion;
 
 namespace TimerTestApp.Services;
 

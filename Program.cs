@@ -1,16 +1,14 @@
+using ActualLab.Fusion;
 using ActualLab.Fusion.Blazor;
 using ActualLab.Fusion.Extensions;
 using ActualLab.Fusion.Server;
 using ActualLab.Fusion.Server.Middlewares;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using TimerTestApp.Components.Pages;
 using TimerTestApp.Data;
 using TimerTestApp.Services;
 
-var builder = WebApplication.CreateBuilder();
-
+var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -35,7 +33,7 @@ app.UseExceptionHandler("/Error", createScopeForErrors: true);
 
 app.UseFusionSession();
 app.UseAntiforgery();
-
+app.UseStaticFiles();
 app.MapRazorComponents<_HostPage>()
     .AddInteractiveServerRenderMode();
 
