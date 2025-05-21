@@ -222,8 +222,8 @@
     private async Task ResetTimer()
     {
         await TimerService.Reset();
-        duration = 15; // Sukut bo'yicha qayta tiklash
-        timeUnit = "Seconds"; // Sukut bo'yicha birlikni qayta tiklash
+        duration = 15;
+        timeUnit = "Seconds";
         await UpdateTimerRecords();
         await InvokeAsync(StateHasChanged);
     }

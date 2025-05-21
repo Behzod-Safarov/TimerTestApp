@@ -11,7 +11,7 @@ using TimerTestApp.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
 builder.Services.AddFusion()
@@ -35,6 +35,6 @@ app.UseFusionSession();
 app.UseAntiforgery();
 app.UseStaticFiles();
 app.MapRazorComponents<_HostPage>()
-    .AddInteractiveServerRenderMode();
+   .AddInteractiveServerRenderMode();
 
 app.Run();
