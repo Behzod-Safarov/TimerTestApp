@@ -1,0 +1,97 @@
+# .NET build files
+bin/
+obj/
+out/
+Generated\ Files/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Visual Studio for Mac
+*.userprefs
+
+# Logs
+*.log
+
+# Package directories
+packages/
+*.nupkg
+# Uncomment if using NuGet package restore
+# !packages/build/
+
+# DotCover
+*.dotCover
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Backup & temporary files
+*~
+*.bak
+*.tmp
+*.temp
+*.swp
+*.DS_Store
+Thumbs.db
+
+# Build results
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Entity Framework Migrations
+Migrations/
+
+# SQLite database
+*.db
+*.sqlite
+*.db-shm
+*.db-wal
+
+# Docker
+Dockerfile.*
+docker-compose.*
+.dockerignore
+
+# Node (for Blazor WASM or frontend)
+node_modules/
+npm-debug.log
+yarn-error.log
+.pnpm-debug.log
+
+# Static assets (optional, if generated)
+wwwroot/dist/
+wwwroot/css/
+wwwroot/js/
+wwwroot/lib/
+
+# Secrets
+secrets.json
+
+# JetBrains Rider cache
+.idea/
+.idea.*
+
+# Fusion (Stl.Fusion) specific
+Fusion.*.bin
+Fusion.*.log
+
+# Optional: ignore user-specific launch profiles
+Properties/launchSettings.json
